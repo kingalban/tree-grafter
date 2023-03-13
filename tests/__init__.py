@@ -32,5 +32,6 @@ def recursive_json(draw, doc_element=st.nothing()):
 
     return draw(st.recursive(
         _json_primitives(_json_values()),
-        recurse
+        recurse,
+        max_leaves=5
     ))

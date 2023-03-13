@@ -37,7 +37,7 @@ def fill_refs(_tree: JSONLike, path: PathType, node: Any) -> Optional[ReplaceNod
     if path and path[-1] == "$ref":
         assert isinstance(node, str), f"expected '$ref' path to be a string, not {type(node)} ({node=})"
         assert node.startswith("#"), f"path must start at root (#), not {node[0]} ({node=})"
-        return ReplaceNode(deep_getitem(_tree, node.strip("#/").split("/")))
+        return ReplaceNode(deep_getitem(_tree, node.strip("#/").split("/")))  # type: ignore
     return None
 
 
